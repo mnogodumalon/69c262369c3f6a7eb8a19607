@@ -1,0 +1,63 @@
+{
+  "RechnungsverwaltungDialog.tsx": {
+    "projekt": "Welches Projekt?",
+    "nettobetrag": "z. B. 5000,00",
+    "steuerbetrag": "z. B. 950,00",
+    "bruttobetrag": "z. B. 5950,00",
+    "leistungszeitraum_von": "Wann startet?",
+    "leistungszeitraum_bis": "Wann endet?",
+    "bestellnummer": "z. B. PO-2026-0815",
+    "notizen": "Besondere Bedingungen, Hinweise zur Zahlung...",
+    "rechnungsdatum": "Heute oder Ausstellungstag",
+    "faelligkeitsdatum": "Zahlungsfrist beachten",
+    "kunde": "Welcher Kunde?",
+    "rechnungsnummer": "z. B. RE-2026-001"
+  },
+  "RechnungspositionenDialog.tsx": {
+    "rechnung": "Zu welcher Rechnung?",
+    "positionsnummer": "z. B. 1",
+    "leistung": "Leistung aus Katalog wählen",
+    "positionsbeschreibung": "Was wurde geleistet? Arbeiten, Materialien, Dienstleistungen...",
+    "menge": "z. B. 10",
+    "einzelpreis": "z. B. 250,00",
+    "rabatt_prozent": "z. B. 10",
+    "gesamtpreis": "z. B. 2250,00",
+    "notizen": "Spezifikationen, Besonderheiten..."
+  },
+  "ProjektverwaltungDialog.tsx": {
+    "projektname": "z. B. Website-Redesign",
+    "projektnummer": "z. B. PROJ-2026-015",
+    "kunde": "Welcher Kunde?",
+    "projektbeschreibung": "Umfang, Ziele, Besonderheiten, Anforderungen...",
+    "startdatum": "Wann startet?",
+    "enddatum": "Wann endet?",
+    "projektleiter_vorname": "z. B. Michael",
+    "projektleiter_nachname": "z. B. Müller",
+    "budget": "z. B. 25000,00",
+    "notizen": "Interne Anmerkungen, Risiken, Abhängigkeiten..."
+  },
+  "LeistungskatalogDialog.tsx": {
+    "leistungsbezeichnung": "z. B. Beratungsstunde",
+    "leistungsbeschreibung": "Was ist enthalten? Umfang, Qualität...",
+    "standardpreis": "z. B. 150,00",
+    "einheit": "Stunde, Tag, Pauschal oder Stück?",
+    "waehrung": "EUR, CHF oder USD?",
+    "aktiv": "Leistung für neue Projekte verwenden?"
+  },
+  "KundenverwaltungDialog.tsx": {
+    "firmenname": "z. B. Müller & Partner GmbH",
+    "ansprechpartner_vorname": "z. B. Klaus",
+    "ansprechpartner_nachname": "z. B. Weber",
+    "email": "z. B. klaus@mueller-partner.de",
+    "telefon": "z. B. +49 30 555-1234",
+    "strasse": "z. B. Hauptstraße",
+    "hausnummer": "z. B. 42",
+    "plz": "z. B. 10115",
+    "ort": "z. B. Berlin",
+    "land": "z. B. Deutschland",
+    "steuernummer": "z. B. 13 123 456 789",
+    "zahlungsbedingungen": "Standard oder kundenspezifisch?",
+    "iban": "z. B. DE89 3704 0044 0532 0130 00",
+    "notizen": "Besonderheiten, Kontaktinfos, Verträge..."
+  }
+}

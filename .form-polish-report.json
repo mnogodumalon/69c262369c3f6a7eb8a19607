@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "Rechnungsverwaltung": {
+      "placeholders_set": 12,
+      "defaults_keys": ["rechnungsdatum", "rechnungsstatus", "steuersatz", "waehrung", "zahlungsbedingungen"],
+      "computed_keys": ["steuerbetrag", "bruttobetrag", "faelligkeitsdatum"],
+      "reason": "Klare Netto-Brutto-Struktur: Steuerbetrag berechnet sich aus Nettobetrag × Steuersatz (lookup-abhängig); Bruttobetrag = Netto + Steuer; Fälligkeitsdatum berechnet sich aus Rechnungsdatum + Zahlungsbedingungen (7/14/30/60 Tage)."
+    },
+    "Rechnungspositionen": {
+      "placeholders_set": 9,
+      "defaults_keys": ["positionsnummer", "menge", "rabatt_prozent"],
+      "computed_keys": ["einzelpreis", "gesamtpreis"],
+      "reason": "Positionsdetail: Gesamtpreis = Menge × Einzelpreis × (1 - Rabatt%); Einzelpreis kann optional von Leistungskatalog vorbelegt werden."
+    },
+    "Projektverwaltung": {
+      "placeholders_set": 10,
+      "defaults_keys": ["projektstatus"],
+      "computed_keys": [],
+      "reason": "Reine Projektmetadaten, kein berechenbarer Betrag. Budget ist manueller Input."
+    },
+    "Leistungskatalog": {
+      "placeholders_set": 6,
+      "defaults_keys": ["einheit", "waehrung", "aktiv"],
+      "computed_keys": [],
+      "reason": "Stammdatenkatalog für Leistungen mit Standardpreisen. Keine Berechnung nötig."
+    },
+    "Kundenverwaltung": {
+      "placeholders_set": 14,
+      "defaults_keys": ["zahlungsbedingungen"],
+      "computed_keys": [],
+      "reason": "Reine Kundenkontakt- und Adressdaten, Stammdaten. Nichts berechenbar."
+    }
+  }
+}

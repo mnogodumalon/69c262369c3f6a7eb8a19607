@@ -1,0 +1,36 @@
+Legend: `!` after a field name = required (from the app's base view) —
+a step form that writes such a field must not submit it empty.
+A lookup field lists its keys after the type (`[lookup/select: a|b|c]`);
+these are the ONLY valid write values — quote them into the brief verbatim,
+the matching labels come from LOOKUP_OPTIONS at runtime.
+`⚙` lists the service methods for that entity, spelled exactly.
+
+Modules — copy these paths verbatim into a subagent brief:
+  @/types/app                            entity types, APP_IDS, LOOKUP_OPTIONS
+  @/types/enriched                       EnrichedRechnungsverwaltung, EnrichedRechnungspositionen, EnrichedProjektverwaltung — the COMPLETE list, no other Enriched* type exists
+  @/services/livingAppsService           LivingAppsService, createRecordUrl, extractRecordId
+  @/hooks/useDashboardData               useDashboardData
+  @/lib/formatters                       lookupKey, formatDate
+  @/components/blocks/IntentWizardShell  IntentWizardShell
+  @/components/blocks/EntitySelectStep   EntitySelectStep
+  @/components/blocks/StatusBadge        StatusBadge, getStatusColor
+  @/components/blocks/BudgetTracker      BudgetTracker
+There is NO `@/config/appIds`, no `@/config/lookupOptions` and no
+`@/lib/urlUtils` — APP_IDS and LOOKUP_OPTIONS come from `@/types/app`,
+createRecordUrl from the service. Note the lowercase `l` in the service path.
+
+- Rechnungsverwaltung (rechnungsverwaltung): projekt[applookup/select], zahlungsbedingungen[lookup/select: netto_60|sofort|netto_7|netto_14|netto_30], steuersatz[lookup/radio: steuersatz_0|steuersatz_7|steuersatz_19], nettobetrag[number], steuerbetrag[number], bruttobetrag[number], waehrung[lookup/radio: eur|chf|usd], leistungszeitraum_von[date/date], leistungszeitraum_bis[date/date], bestellnummer[string/text], notizen[string/textarea], anhang[file], rechnungsdatum![date/date], faelligkeitsdatum[date/date], rechnungsstatus![lookup/select: entwurf|versendet|bezahlt|ueberfaellig|storniert], kunde![applookup/select], rechnungsnummer![string/text]
+  ⚙ getRechnungsverwaltung() · getRechnungsverwaltungEntry(id) · createRechnungsverwaltungEntry(fields) · updateRechnungsverwaltungEntry(id, fields) · deleteRechnungsverwaltungEntry(id)
+  → projekt links to app_id 69c2620ae4c34c170b7718d1
+  → kunde links to app_id 69c261fd91d6b1af611078d2
+- Rechnungspositionen (rechnungspositionen): rechnung![applookup/select], positionsnummer[number], leistung[applookup/select], positionsbeschreibung![string/textarea], menge![number], einheit![lookup/radio: stunde|tag|pauschal|stueck], einzelpreis![number], rabatt_prozent[number], gesamtpreis[number], notizen[string/textarea]
+  ⚙ getRechnungspositionen() · getRechnungspositionenEntry(id) · createRechnungspositionenEntry(fields) · updateRechnungspositionenEntry(id, fields) · deleteRechnungspositionenEntry(id)
+  → rechnung links to app_id 69c2620cac60f33e1cf25fbd
+  → leistung links to app_id 69c262091b3fa68cae88452b
+- Projektverwaltung (projektverwaltung): projektname![string/text], projektnummer[string/text], kunde![applookup/select], projektbeschreibung[string/textarea], startdatum[date/date], enddatum[date/date], projektleiter_vorname[string/text], projektleiter_nachname[string/text], projektstatus[lookup/select: angebot|aktiv|abgeschlossen|pausiert|storniert], budget[number], notizen[string/textarea]
+  ⚙ getProjektverwaltung() · getProjektverwaltungEntry(id) · createProjektverwaltungEntry(fields) · updateProjektverwaltungEntry(id, fields) · deleteProjektverwaltungEntry(id)
+  → kunde links to app_id 69c261fd91d6b1af611078d2
+- Leistungskatalog (leistungskatalog): leistungsbezeichnung![string/text], leistungsbeschreibung[string/textarea], einheit![lookup/radio: stunde|tag|pauschal|stueck], standardpreis![number], waehrung[lookup/radio: eur|chf|usd], aktiv[bool]
+  ⚙ getLeistungskatalog() · getLeistungskatalogEntry(id) · createLeistungskatalogEntry(fields) · updateLeistungskatalogEntry(id, fields) · deleteLeistungskatalogEntry(id)
+- Kundenverwaltung (kundenverwaltung): firmenname![string/text], ansprechpartner_vorname[string/text], ansprechpartner_nachname[string/text], email[string/email], telefon[string/tel], strasse[string/text], hausnummer[string/text], plz[string/text], ort[string/text], land[string/text], steuernummer[string/text], zahlungsbedingungen[lookup/select: netto_7|netto_14|netto_30|netto_60|sofort], iban[string/text], notizen[string/textarea]
+  ⚙ getKundenverwaltung() · getKundenverwaltungEntry(id) · createKundenverwaltungEntry(fields) · updateKundenverwaltungEntry(id, fields) · deleteKundenverwaltungEntry(id)
