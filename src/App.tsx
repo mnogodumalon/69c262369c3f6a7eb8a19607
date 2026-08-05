@@ -20,6 +20,8 @@ import LeistungskatalogDetailPage from '@/pages/LeistungskatalogDetailPage';
 import KundenverwaltungPage from '@/pages/KundenverwaltungPage';
 import KundenverwaltungDetailPage from '@/pages/KundenverwaltungDetailPage';
 // <custom:imports>
+const NeueRechnungPage = lazy(() => import('@/pages/intents/NeueRechnungPage'));
+const RechnungAbschliessenPage = lazy(() => import('@/pages/intents/RechnungAbschliessenPage'));
 // </custom:imports>
 
 // Lazy: public pages live outside <Layout> and only load on /#/public/:slug —
@@ -49,6 +51,8 @@ export default function App() {
                 <Route path="admin" element={<AdminPage />} />
                 <Route path="verwaltung/oeffentliche-seiten" element={<PublicPagesAdmin />} />
                 {/* <custom:routes> */}
+                <Route path="intents/neue-rechnung" element={<Suspense fallback={null}><NeueRechnungPage /></Suspense>} />
+                <Route path="intents/rechnung-abschliessen" element={<Suspense fallback={null}><RechnungAbschliessenPage /></Suspense>} />
                 {/* </custom:routes> */}
               </Route>
             </Routes>
